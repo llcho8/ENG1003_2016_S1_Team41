@@ -45,7 +45,6 @@ function storelocation() {
     } else {
         locationIndex = 0;}
 if (typeof(Storage) !== "undefined") {
-    // Store
     localStorage.setItem(locationIndex, JSON.stringify(location)); 
     locationIndex += 1;
     localStorage.setItem("numberOflocation", JSON.stringify(locationIndex));
