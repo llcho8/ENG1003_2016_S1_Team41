@@ -1,5 +1,7 @@
 // Code for the Add Location page.
 
+
+
 //Create a map and set Monash uni as the centre of map
 //credit to google developer tool-geocoding service from practise 6
 var lat=0;
@@ -33,8 +35,8 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
+//store location in JSON form
 var locationIndex=0;
-
 function storelocation() {
     var nickName = document.getElementById("nickName").value;
     var location = new locationInformation(nickName,lat,long);
