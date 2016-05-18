@@ -36,6 +36,8 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 
 //store location in JSON form
+//use JSON to stringify the object and store to the local storage : 
+//information stored in local storage therefore can access by other file
 var locationIndex=0;
 function storelocation() {
     var nickName = document.getElementById("nickName").value;
