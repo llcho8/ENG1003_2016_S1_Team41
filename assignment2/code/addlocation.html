@@ -29,10 +29,25 @@
               <div class="mdl-cell">
                 <!--   Main page content here:   -->  
 
-              </div>
-            </div>
-          </main>    
+                  
+                  <!-- Location Textfield  -->
+           <input id="location" type="textbox" value=""> 
+
+           <!-- search location button -->
+          <input id="showLocation" type="button" value="Search Location">
+              
+            
+          <!-- Nickname Textfield with Floating Label -->
+         <input id="nickName" type="textbox" value="">
+          
+         <!-- save location button -->
+         <input id="addlocation" type="button" value="Save Location" onClick="storelocation()">
+        
         </div>
+                  <div id="map"></div>
+          
+      </main>
+    </div>
 
         <!--   JavaScript files:   -->
         <script src="js/locationWeatherCache.js"></script>
