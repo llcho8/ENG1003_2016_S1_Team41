@@ -15,7 +15,6 @@
     <link rel="apple-touch-icon-precomposed" href="images/icon.png" />
 
 </head>
-
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -30,12 +29,12 @@
         <main class="mdl-layout__content">
             <div class="content-grid mdl-grid">
                 <div class="mdl-cell">
+                    
                     <!-- html button that removes location and returns to main page -->
-                    <input id="RemoveLocation" type="button" value="Remove Location" onclick="return btntest_onclick()">
+                    <input id="RemoveLocation" type="button" value="Remove Location" onclick="return buttonTest_onclick()">
                     <script language="javascript" type="text/javascript">
-                        function buttonTest_OnClick() {
-                            window.location.href = "index.html";
-                            
+                        function buttonTest_onclick() {
+                            window.location.href = "index.html"; 
                         }
                     </script>
                 </div>
@@ -48,41 +47,43 @@
 
                 <!-- date slider -->
                 <p style="width:300px">
-                    <input class="mdl-slider mdl-js-slider" type="range" id="DateSlider" min="0" max="30" value="30" step="1" onchange="updateDate()">
-                    
-                     <table class="mdl-data-table mdl-js-data-table">
-  <thead>
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Weather</th>
-        <th class="mdl-data-table__cell--non-numeric">Forecast</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Summary</td>
-      <td class="mdl-data-table__cell--non-numeric"></td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Minimum Temperature</td>
-      <td class="mdl-data-table__cell--non-numeric"></td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Maximum Temperature</td>
-      <td class="mdl-data-table__cell--non-numeric"></td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Current Humidity</td>
-      <td class="mdl-data-table__cell--non-numeric"></td>
-    </tr>
-      <tr>
-      <td class="mdl-data-table__cell--non-numeric">Current Wind Speed</td>
-      <td class="mdl-data-table__cell--non-numeric"></td>
-    </tr>
-  </tbody>
-</table>
+                    <input class="mdl-slider mdl-js-slider" type="range" id="dateSlider" min="0" max="30" value="30" step="1" onchange="updateDate()">
                 </p>
+                
+                <!-- Weather Summary table -->
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Weather</th>
+                            <th class="mdl-data-table__cell--non-numeric">Forecast</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Summary</td>
+                            <td class="mdl-data-table__cell--non-numeric" id=weatherSummary></td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Minimum Temperature</td>
+                            <td id=minTemp></td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Maximum Temperature</td>
+                            <td id=maxTemp></td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Current Humidity</td>
+                            <td id=humidity></td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Current Wind Speed</td>
+                            <td id=windSpeed></td>
+                        </tr>
+                    </tbody>
+                </table>
             </form>
         </main>
+        
         <!-- map  styles and id -->
         <div id="map"></div>
         <style>
@@ -93,11 +94,9 @@
             }
         </style>
     </div>
-
     <!--   JavaScript files:   -->
     <script src="js/locationWeatherCache.js"></script>
     <script src="js/viewLocationPage.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3&callback=initMap" async defer></script>
 </body>
-
 </html>
