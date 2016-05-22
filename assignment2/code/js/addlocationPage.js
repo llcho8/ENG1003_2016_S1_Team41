@@ -41,11 +41,12 @@ var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + 
 function searchLocation()
 {
     onclick = url;
+    var results = url.getElementById('results');
+    var latitude = results.geometry.location.lat;
+    var longitude = results.geometry.location.lng;
+    var nickName = document.getElementById("nickName").value;
 }
-var results = document.getElementById
-var latitude = results.geometry.location.lat;
-var longitude = results.geometry.location.lng;
-var nickName = document.getElementById("nickName").value;
+
 function addLocation(latitude, longitude, nickname){
     
     LocationWeatherCache.addLocation(latitude, longitude, nickname);
