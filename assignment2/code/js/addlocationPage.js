@@ -8,18 +8,18 @@ var lat=0;
 var long=0;
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15.75,
-   center: {lat: -37.9120467, lng: 145.1343136}
+   center: {lat: -37.9120467, lng: 145.1343136},
+      zoom: 15.75
   });
-  var geocoder = new google.maps.Geocoder();
-
-  document.getElementById('showLocation').addEventListener('click', function() {
+    var geocoder = new google.maps.Geocoder();
+document.getElementById('showLocation').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('location').value;
+    
+    var address = document.getElementById('location').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
@@ -36,19 +36,18 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
-var locationInURL = document.getElementById('location')
-var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + locationInURL + "&key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838";
+var locationInUrl = document.getElementById('location')
+var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + locationInUrl + "&key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838";
 function searchLocation()
 {
     onclick = url;
-    var results = document.getElementById('results');
+    var results = document.onclick.results;
     var latitude = results.geometry.location.lat;
     var longitude = results.geometry.location.lng;
-    var nickName = document.getElementById("nickName").value;
 }
 
 function addLocation(latitude, longitude, nickname){
-    
+    var nickName = new document.getElementById("nickName").value;
     LocationWeatherCache.addLocation(latitude, longitude, nickname);
 }
 
