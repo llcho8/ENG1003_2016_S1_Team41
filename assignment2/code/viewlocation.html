@@ -30,23 +30,59 @@
         <main class="mdl-layout__content">
             <div class="content-grid mdl-grid">
                 <div class="mdl-cell">
-
                     <!-- html button that removes location and returns to main page -->
-                    <input id="btntest" type="button" value="Remove Location" onclick="return btntest_onclick()" />
+                    <input id="RemoveLocation" type="button" value="Remove Location" onclick="return btntest_onclick()">
                     <script language="javascript" type="text/javascript">
-                        function btntest_onclick() {
+                        function buttonTest_OnClick() {
                             window.location.href = "index.html";
+                            
                         }
                     </script>
                 </div>
             </div>
+            <!-- Numeric Textfield with Floating Label -->
+            <form action="Date">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="dateSliderText" onchange="updateDate()" readonly>
+                </div>
+
+                <!-- date slider -->
+                <p style="width:300px">
+                    <input class="mdl-slider mdl-js-slider" type="range" id="DateSlider" min="0" max="30" value="30" step="1" onchange="updateDate()">
+                    
+                     <table class="mdl-data-table mdl-js-data-table">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Weather</th>
+        <th class="mdl-data-table__cell--non-numeric">Forecast</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Summary</td>
+      <td class="mdl-data-table__cell--non-numeric"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Minimum Temperature</td>
+      <td class="mdl-data-table__cell--non-numeric"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Maximum Temperature</td>
+      <td class="mdl-data-table__cell--non-numeric"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Current Humidity</td>
+      <td class="mdl-data-table__cell--non-numeric"></td>
+    </tr>
+      <tr>
+      <td class="mdl-data-table__cell--non-numeric">Current Wind Speed</td>
+      <td class="mdl-data-table__cell--non-numeric"></td>
+    </tr>
+  </tbody>
+</table>
+                </p>
+            </form>
         </main>
-
-        <!-- date slider -->
-        <p style="width:300px">
-            <input class="mdl-slider mdl-js-slider" type="range" id="DateSlider" min="0" max="30" value="30" step="1" onchange="updateDate()">
-        </p>
-
         <!-- map  styles and id -->
         <div id="map"></div>
         <style>
@@ -57,7 +93,7 @@
             }
         </style>
     </div>
-    
+
     <!--   JavaScript files:   -->
     <script src="js/locationWeatherCache.js"></script>
     <script src="js/viewLocationPage.js"></script>
