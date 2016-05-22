@@ -27,6 +27,13 @@
           <main class="mdl-layout__content">
             <div class="content-grid mdl-grid">
               <div class="mdl-cell">
+                  <style>
+        #map {
+            width: 100%;
+            /* view height, minus header bar height */
+            height: calc(100vh - 300px);
+        }
+    </style>
                 <!--   Main page content here:   -->  
 
                   
@@ -34,9 +41,8 @@
            <input id="location" type="textbox" value=""> 
 
            <!-- search location button -->
-          <input id="showLocation" type="button" value="Search Location">
-              
-            
+          <input id="showLocation" type="button" value="Search Location" onclick="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=location">
+                  
           <!-- Nickname Textfield with Floating Label -->
          <input id="nickName" type="textbox" value="">
           
