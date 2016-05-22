@@ -1,4 +1,4 @@
-var tester1 = new LocationWeatherCache()
+var LocationWeatherCache = new LocationWeatherCache()
 // Returns a date in the format "YYYY-MM-DD".
 /*Date.prototype.simpleDateString = function() {
     function pad(value)
@@ -129,23 +129,23 @@ function LocationWeatherCache()
     // weather object for that location.
     // 
     this.getWeatherAtIndexForDate = function(index, date, callback) {
-       var latitude = locations[index].latitude
+        var latitude = locations[index].latitude
         var longitude= locations[index].longitude
 		var forecastName=(latitude+","+longitude +","+ date).toString()
-       
        
     
        if (!(forecastName in locations[index].forecast)==0) 
             {
-            
+            callback(locations[index].forecast);
 	           
             }
             else {
                 // add data retrived to forecast
-                var exclusions = "?exclude=[currently,hourly,alerts,flags]"
-                var siUnits ="&units=ca"              /// why doesnt this work???
-                var callBackString= "&callback=myfunction"
-                var urlString = "https://api.forecast.io/forecast/d0abf988ba68e2decf75631fd39f81fb/"+ forecastName+exclusions+siunits+callBackString
+                 var exclusions = "?exclude=[currently,hourly,alerts,flags]"
+                 var siUnits ="&units=ca"              /// why doesnt this work???
+                 var callBackString= "&callback=weatherResponse"
+                 var urlString = "https://api.forecast.io/forecast/d0abf988ba68e2decf75631fd39f81fb/"+ forecastName+exclusions+siunits+callBackString
+                
                 var script = document.createElement('script');
                 script.src = urlString;
                 document.body.appendChild(script);
@@ -160,6 +160,7 @@ function LocationWeatherCache()
     // weather request.
     //
     this.weatherResponse = function(response) {
+        console.log(response);
     };
 
     // Private methods:
@@ -196,6 +197,7 @@ function loadLocations()
 //
 function saveLocations()
 { 
-    var locationsAsJSON=tester1.toJSON()    // used tester1 as the new class object but should change !! 
+    var locationsAsJSON=LocationWeatherCache.toJSON()    // used tester1 as the new class object but should change !! 
     localStorage.setItem(APP_PREFIX,locationsAsJSON )   
 }
+
