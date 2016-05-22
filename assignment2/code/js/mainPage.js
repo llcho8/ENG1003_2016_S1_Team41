@@ -38,6 +38,7 @@ function loadMyTable(){
     // Creating the MDL table
     var myLocList='';
     // Creating the rows and content of the table
+    for(var i=0;i<LocationWeatherCache.length;i++){
     var rowRef='<li class="mdl-list__item mdl-list__item--two-line" onclick="viewLocation(' + i+');"><span class="mdl-list__item-primary-content"><img class="mdl-list__item-icon" id="icon" src="images/loading.png" class="list-avatar" /><span>Location'+ i+'</span><span id="weather" class="mdl-list__item-sub-title">Weather summary of '+ i+'</span></span></li>';
         myLocList+=rowRef;
       
