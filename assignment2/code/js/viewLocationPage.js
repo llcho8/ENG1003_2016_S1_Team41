@@ -14,6 +14,7 @@ function loadItemsFromStorage() {
     //get index from local storage 
     var locations = loadLocations();
     selectedItemIndex = JSON.parse(localStorage.getItem(APP_PREFIX + "-selectedLocation"));
+    console.log(selectedItemIndex)
 //    var locations = JSON.parse(localStorage.getItem(STORAGE_KEY_LOCATIONS));
     //get object from index in local storage
     selectedItemObj = locations[selectedItemIndex];
@@ -26,8 +27,8 @@ function loadItemsFromStorage() {
     console.log(selectedItemObj.nickname);
 
 //callback 
-var ref=new LocationWeatherCache();
-ref.getWeatherAtIndexForDate(selectedItemObj,date,forecastHandler); 
+// ref=new LocationWeatherCache();
+LocationWeatherCache.getWeatherAtIndexForDate(selectedItemObj,date,forecastHandler); 
     
 function forecastHandler(forecast){
 console.log('Forecast Handler'+forecast); 
@@ -55,7 +56,7 @@ function initMap() {
         center: centreLocation
     });
     infowindow = new google.maps.InfoWindow;
-    locationMarker(latitude, longitude);
+    //locationMarker(latitude, longitude);
 }
 
 function locationMarker(latitude, longitude) {
@@ -73,3 +74,4 @@ function locationMarker(latitude, longitude) {
     map.panTo(locationPosition);
     map.setZoom(16)
 }
+loadItemsFromStorage();

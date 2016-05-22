@@ -1,4 +1,6 @@
-var LocationWeatherCache = new LocationWeatherCache()
+/*var LocationWeatherCache = new LocationWeatherCache()
+LocationWeatherCache.addLocation(37.8141,144.9633, "melbourne")
+LocationWeatherCache.addLocation(40.7128,74.0059,"NYC") saveLocations();*/
 // Returns a date in the format "YYYY-MM-DD".
 /*Date.prototype.simpleDateString = function() {
     function pad(value)
