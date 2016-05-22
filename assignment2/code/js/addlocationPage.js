@@ -27,14 +27,34 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: results[0].geometry.location
       }); 
-        lat=results[0].geometry.location.lat();
-        long=results[0].geometry.location.lng();
-    } else {
+        lat = results[0].geometry.location.lat();
+        long = results[0].geometry.location.lng();
+    } 
+      else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
 
+var locationInURL = document.getElementById('location')
+var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + locationInURL + "&key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838";
+function searchLocation()
+{
+    onclick = url;
+}
+var results = document.getElementById
+var latitude = results.geometry.location.lat;
+var longitude = results.geometry.location.lng;
+var nickName = document.getElementById("nickName").value;
+function addLocation(latitude, longitude, nickname){
+    
+    LocationWeatherCache.addLocation(latitude, longitude, nickname);
+}
+
+
+
+
+/*
 //store location in JSON form
 //use JSON to stringify the object and store to the local storage : 
 //information stored in local storage therefore can access by other file
@@ -54,7 +74,7 @@ if (typeof(Storage) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
     window.location="index.html";
-}
+}*/
 
 //go back to the main page
 function goBack() {

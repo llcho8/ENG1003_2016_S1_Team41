@@ -41,24 +41,25 @@
            <input id="location" type="textbox" value=""> 
 
            <!-- search location button -->
-          <input id="showLocation" type="button" value="Search Location" onclick="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=location">
+          <input id="showLocation" type="button" value="Search Location" onclick="searchLocation()">
                   
           <!-- Nickname Textfield with Floating Label -->
          <input id="nickName" type="textbox" value="">
           
          <!-- save location button -->
-         <input id="addlocation" type="button" value="Save Location" onClick="storelocation()">
+         <input id="addlocation" type="button" value="Save Location" onClick="addlocation()">
         
         </div>
                   <div id="map">
                 </div>
           </div>
       </main>
-    
+        </div>
 
         <!--   JavaScript files:   -->
         <script src="js/locationWeatherCache.js"></script>
         <script src="js/addlocationPage.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3&callback=initMap" async defer></script>
     </body>
+            
 </html>
