@@ -1,6 +1,4 @@
-/*var LocationWeatherCache = new LocationWeatherCache()
-LocationWeatherCache.addLocation(37.8141,144.9633, "melbourne")
-LocationWeatherCache.addLocation(40.7128,74.0059,"NYC") saveLocations();*/
+
 // Returns a date in the format "YYYY-MM-DD".
 /*Date.prototype.simpleDateString = function() {
     function pad(value)
@@ -118,6 +116,7 @@ function LocationWeatherCache()
     //
     this.initialiseFromPDO = function(locationWeatherCachePDO) {
          locations = loadLocations()
+         return locations
     };
 
     // Request weather for the location at the given index for the
@@ -183,15 +182,23 @@ function LocationWeatherCache()
 		}
     	return -1
     };
+    loadLocations()
 }
 
 // Restore the singleton locationWeatherCache from Local Storage.
 //
 function loadLocations()
 {
-   var locationsFromStorageJSON = localStorage.getItem(APP_PREFIX)
-   var locationsFromStorage= JSON.parse(locationsFromStorageJSON)
-   return locationsFromStorage
+    if (localStorage.getItem(APP_PREFIX) === null) {
+        console.log("no saved locations")
+        return null
+        }
+    else
+    {
+        var locationsFromStorageJSON = localStorage.getItem(APP_PREFIX)
+        var locationsFromStorage= JSON.parse(locationsFromStorageJSON)
+        return locationsFromStorage
+    }
     
 }
 
