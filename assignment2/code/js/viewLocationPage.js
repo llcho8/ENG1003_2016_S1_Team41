@@ -36,13 +36,18 @@ console.log('Forecast Handler'+forecast);
 };
 
 function updateDate() {
-    document.getElementById('dateSlider');
-    document.getElementById('dateSliderText');
-    //get date of weather
-    var date = new Date();   //set todays date as the requested date 
-    var msecSince1970 = date.getTime();
-    msecSince1970 += [];
-    date.setTime(msecSince1970);
+   //alert(this.simpleDateString() + "T12:00:00"); 
+    
+    LocationWeatherCache.getWeatherAtIndexForDate(forecastName.date); 
+    LocationWeatherCache.simpleDateString(forecastDateString); 
+    
+    var currentDate = new Date();
+	var day = currentDate.getDate();
+	var month = currentDate.getMonth() + 1;
+	var year = currentDate.getFullYear();
+	
+    var today = document.write("<b>" + day + "/" + month + "/" + year + "</b>");
+    document.getElementById('dateSliderText').value = today;
 }
 
 function initMap() {
