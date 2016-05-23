@@ -34,7 +34,9 @@
                     <input id="RemoveLocation" type="button" value="Remove Location" onclick="return buttonTest_onclick()">
                     <script language="javascript" type="text/javascript">
                         function buttonTest_onclick() {
-                            window.location.href = "index.html"; 
+                            window.location.href = "index.html";
+                            ViewLocationsPage.locations.splice(ViewLocationsPage.selectedItemIndex);
+                            //remove location from local storage
                         }
                     </script>
                 </div>
