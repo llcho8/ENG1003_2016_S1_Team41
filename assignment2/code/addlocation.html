@@ -38,13 +38,13 @@
 
                   
                   <!-- Location Textfield  -->
-           <input id="location" type="textbox" value=""> 
+           <input id="location" type="textbox" value="" placeholder="Enter a place"> 
 
            <!-- search location button -->
           <input id="showLocation" type="button" value="Search Location" onclick="searchLocation()">
                   
           <!-- Nickname Textfield with Floating Label -->
-         <input id="nickName" type="textbox" value="">
+         <input id="nickName" type="textbox" value="" placeholder="Enter a nickname">
           
          <!-- save location button -->
          <input id="addlocation" type="button" value="Save Location" onClick="addlocation()">
@@ -60,6 +60,7 @@
         <script src="js/locationWeatherCache.js"></script>
         <script src="js/addlocationPage.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&libraries=places&callback=initMap"
     </body>
             
 </html>
