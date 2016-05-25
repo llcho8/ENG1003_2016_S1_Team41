@@ -21,44 +21,54 @@ function loadItemsFromStorage() {
     selectedItemObj = locations[selectedItemIndex];
 
     //locationMarker and initMap is given lat, lng
-    initMap(selectedItemObj.latitude, selectedItemObj.longitude);
-    locationMarker(selectedItemObj.latitude, selectedItemObj.longitude);
+    // map.setCenter(selectedItemObj.latitude, selectedItemObj.longitude);
+    //  locationMarker(selectedItemObj.latitude, selectedItemObj.longitude);
 
     console.log(selectedItemObj.forecast);
     console.log(selectedItemObj.nickname);
 
     //callback 
     //ref=new LocationWeatherCache();
-    LocationWeatherCache.getWeatherAtIndexForDate(selectedItemObj, date, forecastHandler);
+
+   // LocationWeatherCache.getWeatherAtIndexForDate(selectedItemObj, date, forecastHandler);
 
     //get nickname as title    
-    //document.getElementById('HeaderBarTitle');
+    // document.getElementById('HeaderBarTitle');
 
     function forecastHandler(forecast) {
         console.log('Forecast Handler' + forecast);
     }
 };
 
+function removeLocation() {
+    locationWeatherCache.removeLocationAtIndex(selectedItemIndex);
+    window.location.href = "index.html";
+}
+
 
 function updateDate() {
     var dateSlider = document.getElementById('dateSlider');
     var dateSliderText = document.getElementById('dateSliderText');
     console.log(dateSlider.value);
-
+    
     var date = new Date();
-
+    var actualDate = date.simpleDateString();
+    
     if (dateSlider.value < 30) {
-        var daysDifference = dateSlider.value - 30
-        var msecDifference = daysDifference * 24 * 60 * 60 * 1000
+        var daysDifference = (dateSlider.value - 30);
+        //var newDate = new Date(new Date().getTime() + (daysDifference * 24 * 60 * 60 * 1000));
+        var msecDifference = daysDifference * (24 * 60 * 60 * 1000);
         var msecSince1970 = date.getTime();
-        msecSince1970 += [date - msecDifference];
-        date.setTime(msecSince1970);
-        dateSliderText.textContent = date;
+        msecSince1970 += [msecDifference - date];
+        date.setTime(msecSince1970);   
+        
+//return the date in the correct format
+        
     } else {
-        console.log(date.simpleDateString());
+        dateSliderText.textContent = actualDate;
+        console.log(actualDate);
     }
 }
-
 
 function initMap() {
     // Display a map, centred on selected location.
@@ -97,5 +107,6 @@ function loadTableInformation() {
     var humidity = document.getElementById('humidity');
     var windSpeed = document.getElementById('windSpeed');
     var summary = document.getElementById('weatherSummary');
-    
+
+
 }
