@@ -31,18 +31,82 @@ function searchLocation(geocoder, resultsMap)
           }); 
         latitude = results[0].geometry.location.lat();
         longitude = results[0].geometry.location.lng();
-          console.log(latitude,longitude);
     } 
       else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
-function addLocation(lat, long, nickname){
-    var nickName = new document.getElementById("nickName").value;
+function saveLocation(lat, long, nickname){
+    var nickName = document.getElementById("nickName").value;
     LocationWeatherCache.addLocation(latitude, longitude, nickname);
+    console.log('Location saved');
 }
 
+
+
+//current location
+
+function current(){
+if (navigator.geolocation) //Invoke navigator.geolocation.watchPosition to initialise geolocation. Note that this section is dependant on the jQuery library
+{     
+        positionOptions = {
+            enableHighAccuracy: true,
+            timeout: Infinity, 
+            maximumAge: 0
+        }; 
+
+        //$('.gpsError').hide();
+        navigator.geolocation.getCurrentPosition(showCurrentLocation, errorHandler, positionOptions); //Navigator watches GPS for change in location and calls showCurrentLocation when it changes
+}
+    else
+{
+        //$('.gpsValue').hide();
+        
+}
+}
+function errorHandler(error) //Error handling
+{
+        if(error.code == 0){
+           alert("Unknown error");
+        }
+        if(error.code == 1){
+           alert("Access denied by user");
+        }
+
+        if(error.code == 2){
+           alert("Position unavailable");
+        }
+
+        if(error.code == 3){
+           alert("Timed out");
+        }
+}            
+
+function showCurrentLocation(position){ 
+        
+    currentLatitude = Number(position.coords.latitude);
+    currentLongitude = Number(position.coords.longitude); 
+    jsonpRequest(url, position.coords, apiKey, parameters)
+    currentMap();
+}
+function currentMap() {
+    if (lat1===0){
+        current()
+    }
+  var myLatLng = {lat: currentLatitude, lng: currentLongitude}; //replace with current geometry from js file
+    //console.log(myLatLng)
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Active location' //add a function to get active location's name
+  });
+}
 
 function goBack() {
     window.location = "index.html"

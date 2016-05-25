@@ -47,11 +47,15 @@
          <input id="nickName" type="textbox" value="" placeholder="Enter a nickname">
           
          <!-- save location button -->
-         <input id="addlocation" type="button" value="Save Location" onClick="addlocation()">
+         <input id="addlocation" type="button" value="Save Location" onClick="saveLocation()">
         
         </div>
                   <div id="map">
                 </div>
+              <div>
+               <!-- current location button -->
+          <input id="currentLocation" type="button" value="current Location" onclick="current()">
+              </div>
           </div>
       </main>
         </div>
@@ -60,7 +64,6 @@
         <script src="js/locationWeatherCache.js"></script>
         <script src="js/addlocationPage.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&callback=initMap" async defer></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&libraries=places&callback=initMap"
-    </body>
-            
+    
+                </body>
 </html>
