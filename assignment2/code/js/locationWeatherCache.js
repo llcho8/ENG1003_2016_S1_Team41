@@ -1,27 +1,5 @@
 
 // Returns a date in the format "YYYY-MM-DD".
-/*Date.prototype.simpleDateString = function() {
-    function pad(value)
-    {
-        return ("0" + value).slice(-2);
-    }
-
-    var dateString = this.getFullYear() + "-" + 
-            pad(this.getMonth() + 1, 2) + '-' + 
-            pad(this.getDate(), 2);
-    
-    return dateString;
-}
-
-// Date format required by forecast.io API.
-// We always represent a date with a time of midday,
-// so our choice of day isn't susceptible to time zone errors.
-Date.prototype.forecastDateString = function() {
-    return this.simpleDateString() + "T12:00:00";
-}
-*/
-
-// Returns a date in the format "YYYY-MM-DD".
 Date.prototype.simpleDateString = function() {
     function pad(value)
     {
@@ -54,7 +32,7 @@ function LocationWeatherCache()
     // Private attributes:
 
     var locations = [];
-    var callbacks = {};
+    var callbacks = {};// loaded c
 
     // Public methods:
     
@@ -146,7 +124,7 @@ function LocationWeatherCache()
                  var siUnits ="&units=ca"              /// why doesnt this work???
                  var callBackString= "&callback=weatherResponse"
                  var urlString = "https://api.forecast.io/forecast/d0abf988ba68e2decf75631fd39f81fb/"+ forecastName+exclusions+siunits+callBackString
-                
+                console.log(urlString)
                 var script = document.createElement('script');
                 script.src = urlString;
                 document.body.appendChild(script);
@@ -161,6 +139,7 @@ function LocationWeatherCache()
     // weather request.
     //
     this.weatherResponse = function(response) {
+        
         console.log(response);
     };
 
@@ -182,7 +161,7 @@ function LocationWeatherCache()
 		}
     	return -1
     };
-    loadLocations()
+  
 }
 
 // Restore the singleton locationWeatherCache from Local Storage.
@@ -210,3 +189,4 @@ function saveLocations()
     localStorage.setItem(APP_PREFIX,locationsAsJSON )   
 }
 
+loadLocations()
