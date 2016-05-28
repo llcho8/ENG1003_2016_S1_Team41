@@ -7,8 +7,14 @@ var selectedItemObj;
 var map;
 var infoWindow;
 
-// This function loads the weather from local storage. Get index from local storage. 
-// Call to the cache for locations. Get object from index in local storage
+
+function getDateInSimpleFormat(dateInput) {
+    return dateInput.getDay() + "-" + dateInput.getMonth() + "-" + dateInput.getFullYear();
+}
+
+// This function loads the weather from local storage by getting the index of the selected location. 
+// It makes a call to the cache for the locations and defines an object from the index.
+// The object contains the nickname, forecast and latitude and longitude
 function loadItemsFromStorage() {
     var locations = loadLocations();
     console.log(locations);
@@ -20,9 +26,9 @@ function loadItemsFromStorage() {
     console.log(selectedItemObj.forecast);
     console.log(selectedItemObj.nickname);
 
-    //callback 
+    //callback   // doesn't work as date is undefined.
     //ref=new LocationWeatherCache();
-    // LocationWeatherCache.getWeatherAtIndexForDate(selectedItemObj, date, forecastHandler);
+    //LocationWeatherCache.getWeatherAtIndexForDate(selectedItemObj, date, forecastHandler);
 
     function forecastHandler(forecast) {
         console.log('Forecast Handler' + forecast);
@@ -36,7 +42,7 @@ function removeLocation() {
 }
 
 //This function using date.simpleDateString() doesn't work. 
-/*function updateDate() {
+function updateDate() {
     var dateSlider = document.getElementById('dateSlider');
     var dateSliderText = document.getElementById('dateSliderText');
     console.log(dateSlider.value);
@@ -49,7 +55,7 @@ function removeLocation() {
         var msecSince1970 = date.getTime();
         msecSince1970 += [msecDifference + date];
         date.setTime(msecSince1970);
-        dateSliderText.value = msecSince1970;
+        //dateSliderText.value = msecSince1970;
         //return the date in the correct format
 
     } else {
@@ -58,11 +64,6 @@ function removeLocation() {
     }
 
     loadTableInformation(selectedItemIndex);
-}
-*/
-function getDateInSimpleFormat(dateInput) {
-    return dateInput.getDay() + "-" + dateInput.getMonth() + "-" + dateInput.getFullYear();
-    loadTableInformation();
 }
 
 //This function loads the map and the marker.
