@@ -7,8 +7,8 @@ saveLocations();
 // Setting a locations array
 var locations=loadLocations();
 // Storage keys for viewLocation
-var STORAGE_KEY_LOCATIONS="Locations";
-var STORAGE_KEY_SELECTED_ITEM="Location Index";
+// var STORAGE_KEY_LOCATIONS="Locations";
+// var STORAGE_KEY_SELECTED_ITEM="Location Index";
 
 /*function loadMyLocations(){
     // resetting locations for loading
@@ -41,6 +41,9 @@ function loadMyTable(){
     tableRef.innerHTML="";
     // Creating the MDL table
     var myLocList='';
+    // Current Location Row
+    var currentLocation='<li class="mdl-list__item mdl-list__item--two-line><span class="mdl-list__item-primary-content"><img class="mdl-list__item-icon" id="icon" src="images/loading.png" class="list-avatar" /><span>Current Location:</span></span></li>';
+    myLocList+=currentLocation;
     // Creating the rows and content of the table
     for(var i=0;i<locations.length;i++){
     var rowRef='<li class="mdl-list__item mdl-list__item--two-line" onclick="viewLocation(' + i+');"><span class="mdl-list__item-primary-content"><img class="mdl-list__item-icon" id="icon" src="images/loading.png" class="list-avatar" /><span>Location of '+ locations[i].nickname+'</span><span id="weather" class="mdl-list__item-sub-title">Weather summary: '+ locations[i].nickname+'</span></span></li>';
