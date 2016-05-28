@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&callback=initMap" async defer></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="css/weatherapp.css" />
@@ -24,26 +23,26 @@
                 <i class="material-icons">arrow_back</i>
             </button>
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title" id="headerBarTitle"></span>
+                <span class="mdl-layout-title" id="headerBarTitle">Monash</span>
             </div>
         </header>
         <main class="mdl-layout__content">
             <div class="content-grid mdl-grid">
                 <div class="mdl-cell">
-                    
+
                     <!-- html button that removes location and returns to main page -->
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="removeLocation()">
                         Remove Location
                     </button>
                 </div>
             </div>
-            
+
             <!-- Numeric Textfield with Floating Label -->
             <form action="Date">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="dateSliderText" onchange="updateDate()" readonly>
+                    <input class="mdl-textfield__input" type="text" id="dateSliderText" readonly>
                 </div>
-                
+
                 <!-- date slider -->
                 <p style="width:300px">
                     <input class="mdl-slider mdl-js-slider" type="range" id="dateSlider" min="0" max="30" value="30" step="1" onchange="updateDate()">
@@ -94,8 +93,11 @@
 
     </div>
     <!--   JavaScript files:   -->
+
     <script src="js/locationWeatherCache.js"></script>
     <script src="js/viewLocationPage.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaNEecSiI-c-k31YrIx4ygV5LXbFeP838&callback=initMap" async defer></script>
+
 </body>
 
 </html>
